@@ -4,6 +4,7 @@ import Header from './header';
 import TrackDetail from './TrackDetail';
 import axios from 'axios';
 import {Link} from 'react-router-native';
+import {ApiKey} from './ApiKey.js';
 
 class AlbumTracks extends Component {
   state = {
@@ -15,7 +16,7 @@ class AlbumTracks extends Component {
       .get(
         `https://api.musixmatch.com/ws/1.1/album.tracks.get?album_id=${
           this.props.match.params.id
-        }&apikey=a270f3b3544bc0dcd83b15d9dba398e8`,
+        }&apikey=${ApiKey}`,
       )
       .then(response => {
         console.log(response.data);

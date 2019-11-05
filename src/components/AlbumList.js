@@ -3,6 +3,7 @@ import {ScrollView, ActivityIndicator} from 'react-native';
 import Header from './header';
 import AlbumDetail from './AlbumDetail';
 import axios from 'axios';
+import {ApiKey} from './ApiKey.js';
 
 class AlbumList extends Component {
   state = {
@@ -12,7 +13,7 @@ class AlbumList extends Component {
   componentDidMount() {
     axios
       .get(
-        'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=1100&apikey=a270f3b3544bc0dcd83b15d9dba398e8',
+        `https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=1100&apikey=${ApiKey}`,
       )
       .then(response => {
         console.log(response.data);
